@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const template = require('./template.js');
 
 inquirer
     .prompt([{
@@ -15,7 +16,7 @@ inquirer
         {
             type: 'input',
             name: 'installation',
-            message: 'What is your favorite hobby?',
+            message: 'Installation requirements?',
         },
         {
             type: 'input',
@@ -25,7 +26,7 @@ inquirer
         {
             type: 'input',
             name: 'contributing',
-            message: 'Credit any contributors',
+            message: 'Credit any contributors with links to their github pages',
         },
         {
             type: 'input',
@@ -33,9 +34,14 @@ inquirer
             message: 'whatever tests are',
         },
         {
+            type: 'input',
+            name: 'features',
+            message: 'What features do you have',
+        },
+        {
             type: 'list',
             name: 'license',
-            message: 'whatever tests are',
+            message: 'Select a license',
             choices: [{
                     name: "MIT license",
                     value: "MIT"
@@ -54,14 +60,21 @@ inquirer
                 },
             ],
         },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'What is your github link?',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is your email address?',
+        },
     ])
-
-    .then(({
-            license
-        }) => {
-            // Create a license string
+    .then(answers => {
+            const test = template(answers);
             let badge;
-            switch (license) {
+            switch (answers.license) {
                 case "MIT":
                     badge =
                         "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
@@ -82,14 +95,7 @@ inquirer
                 default:
                     throw new Error(`Invalid license ${license}`);
             }
-
-            .then((answers) => {
-                const htmlPageContent = generateHTML(answers);
-
-                fs.writeFile('index.html', htmlPageContent, (err) =>
-                    err ? console.log(err) : console.log('Successfully created index.html!')
-                );
+            fs.writeFile('README.md', test, (err) => 
+                err ? console.error(err) : console.log('Generating README.md...')
+            );
             });
-            //create template literal
-            //insert variables into write file
-            //write file

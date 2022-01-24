@@ -1,8 +1,8 @@
-# dddd
+# README.md generator
 
 ## Description
 
-
+This program creates a readme using the information from the user prompts
 
 ## Table of Contents (Optional)
 
@@ -14,15 +14,15 @@
 
 ## Installation
 
-dd
+This program requires inquirer for nodeJS
 
 ## Usage
 
-d
+To use this program, run it in the command line or through the VSC command interface
 
 ## Credits
 
-d
+https://github.com/MaestroLuu/
 
 ## License
 
@@ -30,11 +30,11 @@ MIT
 
 ## Badges
 
-undefined
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Features
 
-d
+This program generates a readme file
 
 ## How to Contribute
 
@@ -42,9 +42,10 @@ undefined
 
 ## Tests
 
-d
+?
 
 ## Contact
 
-d
+https://github.com/chrismuto/README-generator
 
+chrismuto@gmail.com

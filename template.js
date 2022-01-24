@@ -1,4 +1,4 @@
-const template = ({title, description, howToHelp, installation, features, usage, contributing, test, license, badge, github, email}) =>
+const template = ({title, description, howToHelp, installation, features, usage, contributing, test, license, github, email}, badge) =>
 
 `# ${title}
 
